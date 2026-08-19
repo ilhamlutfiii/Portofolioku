@@ -39,8 +39,8 @@ func main() {
 	// Koneksi database (Render akan otomatis mengisi environment variable DATABASE_URL)
 	connStr := os.Getenv("DATABASE_URL")
 	if connStr == "" {
-		connStr = "postgres://postgres:ilham871@localhost:5432/portofolio_db?sslmode=disable"
-	}
+    log.Fatal("DATABASE_URL belum diatur di Environment Variables!")
+}
 
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
