@@ -9,7 +9,7 @@ export default function ProjectDetail() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/projects/${id}`)
+    fetch(`/api/projects/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error('Proyek tidak ditemukan');
         return res.json();

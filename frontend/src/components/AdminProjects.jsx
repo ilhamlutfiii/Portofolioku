@@ -186,7 +186,7 @@ export default function AdminProjects() {
   const handleDelete = async (id) => {
     if (window.confirm("Apakah Anda yakin ingin menghapus proyek ini?")) {
       try {
-        const res = await fetch(`http://localhost:8080/api/admin/projects/${id}`, { 
+        const res = await fetch(`/api/admin/projects/${id}`, { 
           method: 'DELETE',
           headers: getAuthHeaders(false)
         });
@@ -210,7 +210,7 @@ export default function AdminProjects() {
   const handleDeleteImage = async (id) => {
     if (window.confirm("Apakah Anda yakin ingin menghapus gambar galeri ini?")) {
       try {
-        const res = await fetch(`http://localhost:8080/api/admin/project-images/${id}`, { 
+        const res = await fetch(`/api/admin/project-images/${id}`, { 
           method: 'DELETE',
           headers: getAuthHeaders(false)
         });
