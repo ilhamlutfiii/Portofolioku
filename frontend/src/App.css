@@ -1,0 +1,509 @@
+html {
+  scroll-behavior: smooth;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: #0b0f19;
+  color: #f8fafc;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b0f19;
+}
+
+/* Navbar */
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 5%;
+  box-sizing: border-box;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+}
+
+.nav-logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #38bdf8;
+}
+
+.contact-btn {
+  background: #38bdf8;
+  color: #0b0f19 !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  transition: opacity 0.2s;
+}
+
+.contact-btn:hover {
+  opacity: 0.9;
+}
+
+/* Section Container */
+.section-content {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 110px 20px 60px 20px;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+}
+
+.section-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f1f5f9;
+}
+
+.section-content h2::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 28px;
+  background: #38bdf8;
+  border-radius: 4px;
+}
+
+/* Hero Section */
+.hero-box {
+  text-align: center;
+  padding: 140px 20px 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.hero-box h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-box p {
+  color: #94a3b8;
+  font-size: 1.15rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Grids (Projects, Skills, Services) */
+.project-grid,
+.skills-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Perbaikan untuk Featured Projects (Agar Ukuran Kartu Sama Tinggi) */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card,
+.skill-card,
+.service-box,
+.timeline-item {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 24px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.project-card:hover,
+.skill-card:hover,
+.service-box:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+}
+
+.tech-badge {
+  display: inline-block;
+  background: rgba(129, 140, 248, 0.1);
+  color: #818cf8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.project-card h3,
+.timeline-item h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #f8fafc;
+}
+
+/* Batasi Deskripsi maksimal 2 baris dan beri (...) jika terlalu panjang */
+.project-card p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-item p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Dorong tombol 'Lihat Detail' agar selalu berada di bawah secara sejajar */
+.read-more {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+/* Timeline (Experience & Education) */
+.timeline-item {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.year {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #38bdf8;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Contact Section */
+.contact-section {
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.contact-section p {
+  margin-bottom: 25px;
+  color: #94a3b8;
+}
+
+/* Footer */
+.main-footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #64748b;
+  font-size: 0.85rem;
+  background: #07090e;
+}
+
+/* Project Detail Specific */
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.project-detail-page h1 {
+  font-size: 2.5rem;
+  margin: 15px 0;
+}
+
+.detail-desc {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.additional-info {
+  background: #111827;
+  border: 1px solid #1f2937;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.external-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  margin-top: 10px;
+}
+
+.external-link-btn:hover {
+  opacity: 0.95;
+}
+
+/* Project Gallery & Carousel Styles */
+.project-gallery {
+  margin: 40px 0;
+  width: 100%;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  margin-top: 15px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.gallery-item-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  background: #111827;
+  border: 1px solid #1f2937;
+  padding: 16px;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.image-caption-badge {
+  align-self: flex-start;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  background-color: #0f172a;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.02);
+}
+
+.carousel-btn {
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  font-size: 1.2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.carousel-indicator {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 12px;
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN UNTUK MOBILE & TABLET   */
+/* ========================================= */
+
+@media screen and (max-width: 768px) {
+  /* Navbar di HP */
+  .main-nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+
+  /* Hero Section di HP */
+  .hero-box {
+    padding: 120px 15px 40px 15px;
+  }
+
+  .hero-box h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-box p {
+    font-size: 1rem;
+  }
+
+  /* Section Padding agar pas di layar kecil */
+  .section-content {
+    padding: 90px 15px 40px 15px;
+  }
+
+  .section-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+
+  /* Grid otomatis menyesuaikan 1 kolom di HP */
+  .project-grid,
+  .skills-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card,
+  .skill-card,
+  .service-box,
+  .timeline-item {
+    padding: 18px;
+  }
+
+  /* Halaman Detail & Carousel di HP */
+  .project-detail-page {
+    padding: 90px 20px 40px 20px !important;
+  }
+
+  .project-detail-page h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+
+  .detail-desc {
+    font-size: 1rem !important;
+    line-height: 1.5;
+  }
+
+  .external-link-btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .additional-info {
+    padding: 18px !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
