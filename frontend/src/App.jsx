@@ -63,7 +63,7 @@ export default function App() {
   );
 
   useEffect(() => {
-    fetch($import.meta.env.VITE_API_URL/api/projects)
+    fetch(`/api/projects`)
       .then((res) => {
         if (!res.ok) throw new Error('Gagal mengambil data dari server');
         return res.json();

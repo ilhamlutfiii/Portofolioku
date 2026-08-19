@@ -30,7 +30,7 @@ export default function AdminProjects() {
   // Ambil data proyek beserta relasi images (Publik)
   const fetchProjects = async () => {
     try {
-      const res = await fetch($import.meta.env.VITE_API_URL/api/projects);
+      const res = await fetch(`/api/projects`);
       const data = await res.json();
       setProjects(data || []);
     } catch (err) {
@@ -52,8 +52,8 @@ export default function AdminProjects() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = editingId 
-      ? `${$import.meta.env.VITE_API_URL}/api/admin/projects/${editingId}`
-      : `${$import.meta.env.VITE_API_URL}/api/admin/projects`;
+      ? `/api/admin/projects/${editingId}`
+      : `/api/admin/projects`;
     const method = editingId ? 'PUT' : 'POST';
 
     try {
@@ -98,7 +98,7 @@ export default function AdminProjects() {
       formData.append("image", selectedFile);
 
       try {
-        const uploadRes = await fetch($import.meta.env.VITE_API_URL/api/admin/upload, {
+        const uploadRes = await fetch(`/api/admin/upload`, {
           method: 'POST',
           headers: getAuthHeaders(true), // Menggunakan helper header auth tanpa Content-Type manual (browser otomatis atur multipart boundary)
           body: formData,
@@ -128,8 +128,8 @@ export default function AdminProjects() {
 
     // 2. Simpan atau Update data ke tabel project_images
     const url = editingImageId 
-      ? `${$import.meta.env.VITE_API_URL}/api/admin/project-images/${editingImageId}`
-      : `${$import.meta.env.VITE_API_URL}/api/admin/project-images`;
+      ? `/api/admin/project-images/${editingImageId}`
+      : `/api/admin/project-images`;
     const method = editingImageId ? 'PUT' : 'POST';
 
     try {
